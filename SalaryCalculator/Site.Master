@@ -1,0 +1,140 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="SalaryCalculator.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - Calculator Salariu</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+
+    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512ho49kZBc3ebf2xLEW1IpfYHVV1bfloYSPlWu62rnBkZQ2Qs8F1CNOpH+HRNxV4t4i4l/4ZQh6sdsi5Y2f/h6+Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+    <style>
+
+        body {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.dev/svgjs' width='1440' height='1440' preserveAspectRatio='none' viewBox='0 0 1440 1440'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1001%26quot%3b)' fill='none'%3e%3crect width='1440' height='1440' x='0' y='0' fill='rgba(79%2c 117%2c 85%2c 1)'%3e%3c/rect%3e%3cpath d='M0%2c581.921C120.708%2c596.052%2c250.853%2c614.867%2c356.131%2c554.151C462.82%2c492.621%2c517.119%2c371.414%2c563.109%2c257.163C607.498%2c146.889%2c639.833%2c27.811%2c614.779%2c-88.392C590.499%2c-201.003%2c507.123%2c-287.157%2c427.748%2c-370.646C351.587%2c-450.754%2c273.075%2c-538.885%2c164.898%2c-561.592C59.344%2c-583.748%2c-37.238%2c-505.455%2c-144.075%2c-490.675C-276.513%2c-472.354%2c-428.226%2c-543.476%2c-536.183%2c-464.605C-644.528%2c-385.45%2c-674.731%2c-231.999%2c-681.566%2c-97.994C-688.078%2c29.675%2c-643.134%2c154.756%2c-573.232%2c261.786C-509.488%2c359.388%2c-408.072%2c419.763%2c-306.294%2c476.603C-210.084%2c530.334%2c-109.45%2c569.108%2c0%2c581.921' fill='%234b6f51'%3e%3c/path%3e%3cpath d='M1440 1956.4560000000001C1539.187 1950.026 1632.085 1921.5 1721.3600000000001 1877.805 1820.616 1829.225 1938.179 1788.9769999999999 1985.8609999999999 1689.286 2033.661 1589.35 1975.3400000000001 1474.693 1967.005 1364.228 1957.934 1244.005 1996.642 1114.774 1934.709 1011.332 1869.52 902.452 1751.175 830.443 1628.338 798.578 1507.346 767.192 1383.778 805.004 1262.966 837.077 1139.103 869.96 999.26 888.568 917.536 987.283 836.204 1085.525 849.422 1226.316 835.747 1353.121 822.567 1475.337 781.532 1605.811 839.123 1714.411 896.071 1821.798 1021.428 1870.455 1134.176 1915.872 1231.535 1955.0900000000001 1335.259 1963.246 1440 1956.4560000000001' fill='%23537b59'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1001'%3e%3crect width='1440' height='1440' fill='white'%3e%3c/rect%3e%3c/mask%3e%3c/defs%3e%3c/svg%3e");
+             background-size: cover;
+        }
+
+        .titleFont {
+            font-family: Roboto, sans-serif;
+            font-weight: bold;
+            font-style: italic;
+            color: #333 !important;
+        }
+
+        .subtitleFont {
+            font-family: Roboto, sans-serif;
+            color: #333 !important;
+        }
+
+        .navbar {
+            background: rgba(128, 174, 96, 1);
+            border-bottom-color: #333 !important;
+        }
+
+        .navbar-brand {
+            color: white;
+        }
+
+        .nav.navbar-nav a {
+
+            color: white;
+        }
+
+        .logo-container {
+            text-align: center;
+        }
+
+        .logo {
+            width: 300px;
+            height: auto;
+        }
+
+        #clockContainer {
+            text-align: center;
+            font-family: Roboto;
+            font-weight: bold;
+            font-size: 5em;
+            color: #333;
+        }
+
+        .displayFlex {
+            display: flex;
+            justify-content: center;
+        }
+
+        hr {
+            color: #333;
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" title="more options">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand titleFont" runat="server" href="~/">Calculator Salariu</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a class="subtitleFont" runat="server" href="~/Adaugare_Angajati.aspx"><i class="fas fa-user-plus"></i>&nbsp;Adaugare angajat</a></li>
+                        <li><a class="subtitleFont" runat="server" href="~/Afisare_Angajati"><i class="fas fa-user"></i>&nbsp;Afisare angajati</a></li>
+                        <li><a class="subtitleFont" runat="server" href="~/Calculator_Salariu"><i class="fas fa-money-check-dollar"></i>&nbsp;Calculator salariu</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container body-content">
+            <br />
+            <br />
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+
+            <asp:ContentPlaceHolder ID="BodyContent" runat="server">
+            </asp:ContentPlaceHolder>
+
+            <footer>
+                
+            </footer>
+        </div>
+
+    </form>
+</body>
+</html>
