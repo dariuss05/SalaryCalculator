@@ -115,8 +115,8 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li><a class="subtitleFont" runat="server" href="~/Adaugare_Angajati.aspx"><i class="fas fa-user-plus"></i>&nbsp;Adaugare angajat</a></li>
-                        <li><a class="subtitleFont" runat="server" href="~/Afisare_Angajati"><i class="fas fa-user"></i>&nbsp;Afisare angajati</a></li>
-                        <li><a class="subtitleFont" runat="server" href="~/Calculator_Salariu"><i class="fas fa-money-check-dollar"></i>&nbsp;Calculator salariu</a></li>
+                        <li><a class="subtitleFont" runat="server" href="~/Afisare_Angajati.aspx"><i class="fas fa-user"></i>&nbsp;Afisare angajati</a></li>
+                        <li><a class="subtitleFont" runat="server" href="~/Calculator_Salariu.aspx"><i class="fas fa-money-check-dollar"></i>&nbsp;Calculator salariu</a></li>
                     </ul>
                 </div>
             </div>
