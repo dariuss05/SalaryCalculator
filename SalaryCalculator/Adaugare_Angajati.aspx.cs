@@ -147,7 +147,7 @@ namespace SalaryCalculator
                                 lblErrorMessage.Text = "Nu putem adauga CASS";
                             }
 
-                            int brutImpozabil = (totalBrut - valCAS - valCASS);
+                            int brutImpozabil = (totalBrut - valCASS - valCAS);
                             insertCommand.Parameters.AddWithValue("@brutImpozabil", brutImpozabil);
 
                             if (float.TryParse(txtImpozit.Text, out float dbImpozit))
@@ -160,7 +160,7 @@ namespace SalaryCalculator
                                 lblErrorMessage.Text = "Nu putem adauga impozit";
                             }
 
-                            int viratCard = (totalBrut - brutImpozabil - valCAS - valCASS - retineri);
+                            int viratCard = (totalBrut - valImpozit - valCAS - valCASS - retineri);
                             insertCommand.Parameters.AddWithValue("@viratCard", viratCard);
 
                             int taxaID = GetTaxaID();
