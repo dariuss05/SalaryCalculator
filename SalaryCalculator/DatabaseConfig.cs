@@ -2,15 +2,37 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Data.Entity;
+using System.Data;
+using MySql.Data.MySqlClient;
 
 namespace SalaryCalculator
 {
-    public class DatabaseConfig : DbContext
+    public class DatabaseConfig
     {
-        public DatabaseConfig() : base("MySqlConnection") { }
+        private readonly string connectionString;
 
-        public DbSet<Angajat> angajati { get; set; }
-        public DbSet<Taxa> taxe { get; set; }
+        public DatabaseConfig(string connectionString)
+        {
+            this.connectionString = connectionString;
+        }
+
+        public DataTable ExecuteQuery(string query)
+        {
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
+                    {
+                        DataTable dataTable = new DataTable();
+                        adapter.Fill(dataTable);
+                        return dataTable;
+                    }
+                }
+            }
+        }
+       
     }
 }

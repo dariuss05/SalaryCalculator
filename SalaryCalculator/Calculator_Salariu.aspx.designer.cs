@@ -11,7 +11,7 @@ namespace SalaryCalculator
 {
 
 
-    public partial class About
+    public partial class Calculator_Salariu
     {
     }
 }

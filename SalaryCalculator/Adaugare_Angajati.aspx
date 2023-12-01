@@ -1,9 +1,11 @@
-﻿<%@ Page Title="Adaugare angajati" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Adaugare_Angajati.aspx.cs" Inherits="SalaryCalculator.About" %>
+﻿<%@ Page Title="Adaugare angajati" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Adaugare_Angajati.aspx.cs" Inherits="SalaryCalculator.Adaugare_Angajati" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
      
     <asp:Label ID="lblInfoText" runat="server" />
-        
+    
+    <br />
+
     <asp:Label ID="lblNume" runat="server" Text="Nume: " AssociatedControlID="txtNume" />
     <asp:TextBox ID="txtNume" runat="server" />
 
