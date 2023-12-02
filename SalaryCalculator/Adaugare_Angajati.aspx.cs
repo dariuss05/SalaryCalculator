@@ -137,9 +137,7 @@ namespace SalaryCalculator
 
                             if (float.TryParse(txtCASS.Text, out float dbCASS))
                             {
-                                // Perform the calculation needed for valCASS
                                 valCASS = (int)(totalBrut * dbCASS);
-
                                 insertCommand.Parameters.AddWithValue("@cass", valCASS);
                             }
                             else
@@ -152,7 +150,7 @@ namespace SalaryCalculator
 
                             if (float.TryParse(txtImpozit.Text, out float dbImpozit))
                             {
-                                valImpozit = (int)(brutImpozabil * dbImpozit); // Assign the value
+                                valImpozit = (int)(brutImpozabil * dbImpozit);
                                 insertCommand.Parameters.AddWithValue("@impozit", valImpozit);
                             }
                             else
@@ -168,6 +166,7 @@ namespace SalaryCalculator
 
                             insertCommand.ExecuteNonQuery();
 
+                            lblErrorMessage.ForeColor = System.Drawing.Color.LightGreen;
                             lblErrorMessage.Text = "Angajat adaugat cu succes";
                         } catch (Exception exception)
                         {

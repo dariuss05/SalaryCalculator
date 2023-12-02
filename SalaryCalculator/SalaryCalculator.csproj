@@ -218,7 +218,7 @@
   <ItemGroup>
     <Content Include="Adaugare_Angajati.aspx" />
     <Content Include="Afisare_Angajati.aspx" />
-    <Content Include="Calculator_Salariu.aspx" />
+    <Content Include="Actualizare_Date.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -290,12 +290,12 @@
     <Compile Include="Afisare_Angajati.aspx.designer.cs">
       <DependentUpon>Afisare_Angajati.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Calculator_Salariu.aspx.cs">
-      <DependentUpon>Calculator_Salariu.aspx</DependentUpon>
+    <Compile Include="Actualizare_Date.aspx.cs">
+      <DependentUpon>Actualizare_Date.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Calculator_Salariu.aspx.designer.cs">
-      <DependentUpon>Calculator_Salariu.aspx</DependentUpon>
+    <Compile Include="Actualizare_Date.aspx.designer.cs">
+      <DependentUpon>Actualizare_Date.aspx</DependentUpon>
     </Compile>
     <Compile Include="DatabaseConfig.cs" />
     <Compile Include="Default.aspx.cs">

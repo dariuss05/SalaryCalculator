@@ -5,6 +5,7 @@
     <asp:Label ID="lblInfoText" runat="server" />
     
     <br />
+    <br />
 
     <asp:Label ID="lblNume" runat="server" Text="Nume: " AssociatedControlID="txtNume" />
     <asp:TextBox ID="txtNume" runat="server" />
@@ -74,7 +75,7 @@
     <asp:Button ID="btnSubmit" runat="server" Text="Adauga angajat" Font-Bold="true" OnClick="btnSubmit_Click" />
 
     <br />
-    <asp:Label ID="lblErrorMessage" runat="server" ForeColor="Red" Font-Bold="true" />
+    <asp:Label ID="lblErrorMessage" runat="server" ForeColor="Red" Font-Bold="true" CssClass="infoMsg" />
 
 
 
