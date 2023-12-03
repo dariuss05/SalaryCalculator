@@ -88,6 +88,10 @@
             color: red;
         }
 
+        .editRow {
+            padding: 10px;
+        }
+
     </style>
 
 </head>

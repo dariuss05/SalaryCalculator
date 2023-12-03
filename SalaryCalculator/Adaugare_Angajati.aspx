@@ -37,6 +37,7 @@
 
     <br />
 
+    <!--
     <asp:Label ID="lblTotalBrut" runat="server" Text="Total brut: " AssociatedControlID="txtTotalBrut" />
     <asp:TextBox ID="txtTotalBrut" runat="server" />
 
@@ -47,18 +48,19 @@
 
     <br />
 
+    -->
     <asp:Label ID="lblImpozit" runat="server" Text="Impozit (10%): " AssociatedControlID="txtImpozit" />
-    <asp:TextBox ID="txtImpozit" runat="server" />
+    <asp:TextBox ID="txtImpozit" runat="server" ReadOnly="true" />
 
     <br />
 
     <asp:Label ID="lblCAS" runat="server" Text="CAS (25%): " AssociatedControlID="txtCAS" />
-    <asp:TextBox ID="txtCAS" runat="server" />
+    <asp:TextBox ID="txtCAS" runat="server" ReadOnly="true" />
 
     <br />
 
     <asp:Label ID="lblCASS" runat="server" Text="CASS (10%): " AssociatedControlID="txtCASS" />
-    <asp:TextBox ID="txtCASS" runat="server" />
+    <asp:TextBox ID="txtCASS" runat="server" ReadOnly="true" />
 
     <br />
 
@@ -67,8 +69,11 @@
 
     <br />
 
+    <!--
     <asp:Label ID="lblViratCard" runat="server" Text="Virat Card: " AssociatedControlID="txtViratCard" />
     <asp:TextBox ID="txtViratCard" runat="server" />
+    -->
+
 
     <br />
 
