@@ -23,7 +23,6 @@
             var minutes = now.getMinutes();
             var seconds = now.getSeconds();
 
-            // Ensure two digits for hours, minutes, and seconds
             hours = hours < 10 ? '0' + hours : hours;
             minutes = minutes < 10 ? '0' + minutes : minutes;
             seconds = seconds < 10 ? '0' + seconds : seconds;
@@ -32,10 +31,8 @@
             document.getElementById('clock').innerHTML = timeString;
         }
 
-            // Update the clock every second
             setInterval(updateClock, 1000);
 
-            // Initial update
             updateClock();
         </script>
 

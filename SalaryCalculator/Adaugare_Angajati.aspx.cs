@@ -178,8 +178,77 @@ namespace SalaryCalculator
             }
             catch (Exception exception)
             {
+                lblErrorMessage.ForeColor = System.Drawing.Color.Red;
                 lblErrorMessage.Text = "Eroare la adaugarea angajatului, verifica te rog formularul";
             }
+        }
+        
+        private void validateStringTextBoxes(TextBox textBox)
+        {
+
+            string value = textBox.Text.Trim();
+
+            if (containsNumbers(value))
+            {
+                lblErrorMessage.ForeColor = System.Drawing.Color.Red;
+                lblErrorMessage.Text = "Verifica te rog textul introdus, nu trebuie sa contina numere!";
+            }
+
+        }
+
+        private void validateDecimalTextBoxes(TextBox textBox)
+        {
+            string value = textBox.Text.Trim();
+
+            if (!decimal.TryParse(value, out decimal numericValue) || numericValue < 0) {
+                lblErrorMessage.ForeColor = System.Drawing.Color.Red;
+                lblErrorMessage.Text = "Verifica te rog textul introdus, nu trebuie sa contina litere iar valoarea trebuie sa fie mai mare ca 0!";
+            }
+        }
+
+        private bool containsNumbers(string text)
+        {
+            return text.Any(char.IsDigit);
+        }
+
+        private bool containsLetters(string text)
+        {
+            return text.Any(char.IsLetter);
+        }
+
+        protected void txtNume_TextChanged(object sender, EventArgs e)
+        {
+            validateStringTextBoxes(txtNume);
+        }
+
+        protected void txtPrenume_TextChanged(object sender, EventArgs e)
+        {
+            validateStringTextBoxes(txtPrenume);
+        }
+
+        protected void txtFunctie_TextChanged(object sender, EventArgs e)
+        {
+            validateStringTextBoxes(txtFunctie);
+        }
+
+        protected void txtSalarBaza_TextChanged(object sender, EventArgs e)
+        {
+            validateDecimalTextBoxes(txtSalarBaza);
+        }
+
+        protected void txtSpor_TextChanged(object sender, EventArgs e)
+        {
+            validateDecimalTextBoxes(txtSpor);
+        }
+
+        protected void txtPremiiBrute_TextChanged(object sender, EventArgs e)
+        {
+            validateDecimalTextBoxes(txtPremiiBrute);
+        }
+
+        protected void txtRetineri_TextChanged(object sender, EventArgs e)
+        {
+            validateDecimalTextBoxes(txtRetineri);
         }
     }
 }

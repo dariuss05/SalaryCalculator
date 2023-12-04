@@ -8,32 +8,32 @@
     <br />
 
     <asp:Label ID="lblNume" runat="server" Text="Nume: " AssociatedControlID="txtNume" />
-    <asp:TextBox ID="txtNume" runat="server" />
+    <asp:TextBox ID="txtNume" runat="server" AutoPostBack="true" OnTextChanged="txtNume_TextChanged" />
 
     <br />
 
     <asp:Label ID="lblPrenume" runat="server" Text="Prenume: " AssociatedControlID="txtPrenume" />
-    <asp:TextBox ID="txtPrenume" runat="server" />
+    <asp:TextBox ID="txtPrenume" runat="server" AutoPostBack="true" OnTextChanged="txtPrenume_TextChanged" />
 
     <br />
 
     <asp:Label ID="lblFunctie" runat="server" Text="Functie: " AssociatedControlID="txtFunctie" />
-    <asp:TextBox ID="txtFunctie" runat="server" />
+    <asp:TextBox ID="txtFunctie" runat="server" AutoPostBack="true" OnTextChanged="txtFunctie_TextChanged" />
 
     <br />
 
     <asp:Label ID="lblSalarBaza" runat="server" Text="Salar Baza: " AssociatedControlID="txtSalarBaza" />
-    <asp:TextBox ID="txtSalarBaza" runat="server" />
+    <asp:TextBox ID="txtSalarBaza" runat="server" AutoPostBack="true" OnTextChanged="txtSalarBaza_TextChanged" />
 
     <br />
 
     <asp:Label ID="lblSpor" runat="server" Text="Spor: " AssociatedControlID="txtSpor" />
-    <asp:TextBox ID="txtSpor" runat="server" />
+    <asp:TextBox ID="txtSpor" runat="server" AutoPostBack="true" OnTextChanged="txtSpor_TextChanged" />
 
     <br />
 
     <asp:Label ID="lblPremiiBrute" runat="server" Text="Premii brute: " AssociatedControlID="txtPremiiBrute" />
-    <asp:TextBox ID="txtPremiiBrute" runat="server" />
+    <asp:TextBox ID="txtPremiiBrute" runat="server" AutoPostBack="true" OnTextChanged="txtPremiiBrute_TextChanged" />
 
     <br />
 
@@ -65,7 +65,7 @@
     <br />
 
     <asp:Label ID="lblRetineri" runat="server" Text="Retineri: " AssociatedControlID="txtRetineri" />
-    <asp:TextBox ID="txtRetineri" runat="server" />
+    <asp:TextBox ID="txtRetineri" runat="server" AutoPostBack="true" OnTextChanged="txtRetineri_TextChanged" />
 
     <br />
 
