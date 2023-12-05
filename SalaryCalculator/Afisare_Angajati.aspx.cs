@@ -182,5 +182,30 @@ namespace SalaryCalculator
                 lblInfoText.Text = "Nu s-a putut descarca fluturasul!";
             }
         }
+
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            string searchColumn = ddlSearch.SelectedValue;
+            string searchText = txtSearch.Text;
+
+            string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
+            string query = $"SELECT nr_crt, nume, prenume, functie, salar_baza, spor, premii_brute, total_brut, brut_impozabil, impozit, cas, cass, retineri, virat_card FROM salarycalculator.angajati WHERE taxa_id = 1 AND {searchColumn} = @SearchResult";
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@SearchResult", searchText);
+
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        GridView1.DataSource = reader;
+                        GridView1.DataBind();
+                    }
+                }
+            }
+
+        }
     }
 }

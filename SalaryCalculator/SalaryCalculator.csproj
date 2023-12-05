@@ -222,6 +222,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Actualizare_Taxe.aspx" />
     <Content Include="Adaugare_Angajati.aspx" />
     <Content Include="Afisare_Angajati.aspx" />
     <Content Include="Actualizare_Date.aspx" />
@@ -279,6 +280,13 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Actualizare_Taxe.aspx.cs">
+      <DependentUpon>Actualizare_Taxe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Actualizare_Taxe.aspx.designer.cs">
+      <DependentUpon>Actualizare_Taxe.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Angajat.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="Adaugare_Angajati.aspx.cs">

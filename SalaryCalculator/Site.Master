@@ -26,8 +26,8 @@
 
         .titleFont {
             font-family: Roboto, sans-serif;
+            font-size: 30px;
             font-weight: bold;
-            font-style: italic;
             color: #333 !important;
         }
 
@@ -92,6 +92,48 @@
             padding: 10px;
         }
 
+        .roundButton {
+            display: inline-block;
+            padding: 5px 10px;
+            font-weight: bold;
+            border-color: transparent;
+            border-radius: 2px;
+            background-color: lightgreen;
+            color: black;
+            text-align: center;
+            font-size: 15px;
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        .roundedDropDownList {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 2px;
+            margin: 10px;
+        }
+
+        .roundedTextBox {
+            display: inline-block;
+            border-color: transparent;
+            border-radius: 3px;
+            margin: 10px;
+        }
+
+        .centeredLabel {
+            vertical-align: middle;
+            display: inline-block;
+            margin: 20px;
+        }
+
+        .labelSpacing {
+            margin-right: 10px;
+        }
+
+        .textBoxSpacing {
+            margin-bottom: 10px;
+        }
+
     </style>
 
 </head>
@@ -126,13 +168,14 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand titleFont" runat="server" href="~/">Calculator Salariu</a>
+                    <a class="navbar-brand subtitleFont" runat="server" href="~/">Calculator Salariu</a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li><a class="subtitleFont" runat="server" href="~/Adaugare_Angajati.aspx"><i class="fas fa-user-plus"></i>&nbsp;Adaugare angajat</a></li>
                         <li><a class="subtitleFont" runat="server" href="~/Afisare_Angajati.aspx"><i class="fas fa-user"></i>&nbsp;Afisare angajati</a></li>
                         <li><a class="subtitleFont" runat="server" href="~/Actualizare_Date.aspx"><i class="fas fa-money-check-dollar"></i>&nbsp;Actualizare Date</a></li>
+                        <li><a class="subtitleFont" runat="server" href="~/Actualizare_Taxe.aspx"><i class="fas fa-calendar-check"></i>&nbsp;Actualizare Taxe</a></li>
                     </ul>
                 </div>
             </div>

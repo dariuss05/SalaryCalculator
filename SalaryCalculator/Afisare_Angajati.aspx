@@ -4,6 +4,26 @@
     <p class="titleFont">Afisare angajati</p>
     
     <br />
+    <br />
+
+    <div class="displayFlex" style="padding: 15px;">
+        
+        <asp:Label ID="lblSearch" runat="server" Text="Cautare dupa: &nbsp;" CssClass="centeredLabel"></asp:Label>        
+        <asp:DropDownList ID="ddlSearch" runat="server" CssClass="roundedDropDownList">
+                
+            <asp:ListItem Text="Nr. Crt" Value="nr_crt" />
+            <asp:ListItem Text="Nume" Value="nume" />
+            <asp:ListItem Text="Virat Card" Value="salar_baza" />
+
+        </asp:DropDownList>
+        <asp:TextBox ID="txtSearch" runat="server" placeholder="Cautati..." CssClass="roundedTextBox"></asp:TextBox>
+        <asp:Button ID="btnSearch" runat="server" Text="Cauta" OnClick="btnSearch_Click" CssClass="roundButton" />
+
+
+    </div>
+
+    <br />
+    <br />
 
    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" OnRowDataBound="GridView1_RowDataBound" BorderColor="Black" BorderWidth="1px" DataKeyNames="nr_crt" OnRowCommand="GridView1_RowCommand">
     <Columns>

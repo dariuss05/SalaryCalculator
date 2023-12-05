@@ -164,6 +164,13 @@ namespace SalaryCalculator
                             int taxaID = GetTaxaID();
                             insertCommand.Parameters.AddWithValue("taxaID", taxaID);
 
+                            if (validateEmptyTextBoxes())
+                            {
+                                lblErrorMessage.ForeColor = System.Drawing.Color.Red;
+                                lblErrorMessage.Text = "Completeaza te rog toate textbox-urile!";
+                                return;
+                            }
+
                             insertCommand.ExecuteNonQuery();
 
                             lblErrorMessage.ForeColor = System.Drawing.Color.LightGreen;
@@ -182,7 +189,21 @@ namespace SalaryCalculator
                 lblErrorMessage.Text = "Eroare la adaugarea angajatului, verifica te rog formularul";
             }
         }
-        
+
+        private bool validateEmptyTextBoxes()
+        {
+            TextBox[] textBoxes = { txtNume, txtPrenume, txtFunctie, txtSalarBaza, txtSpor, txtPremiiBrute, txtImpozit, txtCAS, txtCASS, txtRetineri };
+
+            foreach (TextBox textBox in textBoxes)
+            {
+                if (string.IsNullOrWhiteSpace(textBox.Text))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         private void validateStringTextBoxes(TextBox textBox)
         {
 
