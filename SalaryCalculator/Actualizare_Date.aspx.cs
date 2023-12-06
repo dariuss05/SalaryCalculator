@@ -273,5 +273,7 @@ namespace SalaryCalculator
             }
             ScriptManager.RegisterStartupScript(this, GetType(), "RedirectScript", "setTimeout(function(){ window.location = '" + Request.RawUrl + "'; }, 300);", true);
         }
+
+
     }
 }

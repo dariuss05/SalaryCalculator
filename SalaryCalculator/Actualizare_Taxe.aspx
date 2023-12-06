@@ -24,13 +24,8 @@
             <asp:Label ID="lblUpdateImpozit" runat="server" Text="Impozit: " AssociatedControlID="txtUpdateImpozit" />
             <asp:TextBox ID="txtUpdateImpozit" runat="server" CssClass="roundedTextBox textBoxSpacing"></asp:TextBox>
 
+            <asp:Button ID="Button1" runat="server" Text="Actualizeaza" OnClick="btnUpdateTaxe_Click" CssClass="roundButton" />
         </div>
-
-    </div>
-    
-    <div class="displayFlex">
-
-        <asp:Button ID="Button1" runat="server" Text="Actualizeaza" OnClick="btnUpdateTaxe_Click" CssClass="roundButton" />
 
     </div>
 </asp:Content>

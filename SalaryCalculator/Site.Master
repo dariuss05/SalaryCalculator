@@ -13,7 +13,7 @@
     </asp:PlaceHolder>
 
     <webopt:bundlereference runat="server" path="~/Content/css" />
-    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="~/logo/bribe.png" rel="shortcut icon" type="image/x-icon" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512ho49kZBc3ebf2xLEW1IpfYHVV1bfloYSPlWu62rnBkZQ2Qs8F1CNOpH+HRNxV4t4i4l/4ZQh6sdsi5Y2f/h6+Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 
@@ -132,6 +132,21 @@
 
         .textBoxSpacing {
             margin-bottom: 10px;
+        }
+
+        .paragraphMainPage {
+            font-family: Roboto;
+            max-width: 70%;
+
+        }
+
+        .paragraphMainText {
+            font-family: Roboto;
+            font-weight: bold;
+        }
+
+        .subParagraphMainText {
+            font-family: Roboto;
         }
 
     </style>

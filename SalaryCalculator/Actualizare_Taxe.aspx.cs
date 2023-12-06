@@ -14,38 +14,40 @@ namespace SalaryCalculator
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            try
+            if (!IsPostBack)
             {
-                string connectionString = ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
-                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                try
                 {
-                    connection.Open();
-                    string taxeQuery = "SELECT impozit, cas, cass FROM salarycalculator.taxe WHERE taxe.id = 1";
+                    string connectionString = ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
 
-                    using (MySqlCommand command = new MySqlCommand(taxeQuery, connection))
+                    using (MySqlConnection connection = new MySqlConnection(connectionString))
                     {
-                        using (MySqlDataReader reader = command.ExecuteReader())
+                        connection.Open();
+                        string taxeQuery = "SELECT impozit, cas, cass FROM salarycalculator.taxe WHERE taxe.id = 1";
+
+                        using (MySqlCommand command = new MySqlCommand(taxeQuery, connection))
                         {
-                            if (reader.Read())
+                            using (MySqlDataReader reader = command.ExecuteReader())
                             {
-                                float impozit = reader.GetFloat("impozit");
-                                txtUpdateImpozit.Text = impozit.ToString();
+                                if (reader.Read())
+                                {
+                                    float impozit = reader.GetFloat("impozit");
+                                    txtUpdateImpozit.Text = impozit.ToString();
 
-                                float cas = reader.GetFloat("cas");
-                                txtUpdateCAS.Text = cas.ToString();
+                                    float cas = reader.GetFloat("cas");
+                                    txtUpdateCAS.Text = cas.ToString();
 
-                                float cass = reader.GetFloat("cass");
-                                txtUpdateCASS.Text = cass.ToString();
-
-
+                                    float cass = reader.GetFloat("cass");
+                                    txtUpdateCASS.Text = cass.ToString();
+                                }
                             }
                         }
                     }
                 }
-            }
-            catch (Exception ex)
-            {
-                lblInfoText.Text = "Nu am putut incarca taxele din baza de date";
+                catch (Exception ex)
+                {
+                    lblInfoText.Text = "Nu am putut incarca taxele din baza de date";
+                }
             }
         }
 
@@ -83,30 +85,38 @@ namespace SalaryCalculator
         {
             string connectionString = ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
 
-            decimal txtImpozit = Convert.ToDecimal(txtUpdateImpozit.Text);
-            decimal txtCAS = Convert.ToDecimal(txtUpdateCAS.Text);
-            decimal txtCASS = Convert.ToDecimal(txtUpdateCASS.Text);
+            float txtImpozit = float.Parse(txtUpdateImpozit.Text);
+            float txtCAS = float.Parse(txtUpdateCAS.Text);
+            float txtCASS = float.Parse(txtUpdateCASS.Text);
 
             int idValue = GetTaxaID();
 
-
+            string updateTaxeQuery = "UPDATE salarycalculator.taxe SET impozit=@Impozit, cas=@CAS, cass=@CASS WHERE id=@ID";
 
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
-                connection.Open();
-
-                using (MySqlCommand command = new MySqlCommand("UpdateTaxeProcedure", connection))
+                try
                 {
-                    command.CommandType = CommandType.StoredProcedure;
+                    connection.Open();
+                    using (MySqlTransaction transaction = connection.BeginTransaction())
+                    {
+                        using (MySqlCommand updateTaxeCommand = new MySqlCommand(updateTaxeQuery, connection))
+                        {
+                            updateTaxeCommand.Parameters.AddWithValue("@Impozit", txtImpozit);
+                            updateTaxeCommand.Parameters.AddWithValue("@CAS", txtCAS);
+                            updateTaxeCommand.Parameters.AddWithValue("@CASS", txtCASS);
+                            updateTaxeCommand.Parameters.AddWithValue("@ID", idValue);
 
-                    command.Parameters.AddWithValue("@id_param", idValue);
-                    command.Parameters.AddWithValue("@impozit_param", txtImpozit);
-                    command.Parameters.AddWithValue("@cas_param", txtCAS);
-                    command.Parameters.AddWithValue("@cass_param", txtCASS);
-
-                    command.ExecuteNonQuery();
-                    lblInfoText.ForeColor = System.Drawing.Color.LightGreen;
-                    lblInfoText.Text = "Taxe actualizate cu succes!";
+                            updateTaxeCommand.ExecuteNonQuery();
+                            lblInfoText.ForeColor = System.Drawing.Color.LightGreen;
+                            lblInfoText.Text = "Taxe actualizate cu succes!";
+                        }
+                        transaction.Commit();
+                    }
+                } catch (Exception ex)
+                {
+                    lblInfoText.ForeColor = System.Drawing.Color.Red;
+                    lblInfoText.Text = ex.ToString();
                 }
             }
         }

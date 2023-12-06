@@ -1,0 +1,26 @@
+// STORED PROCEDURE:
+CREATE DEFINER=`root`@`localhost` PROCEDURE `UpdateAngajatiTaxe`(IN new_impozit FLOAT, IN new_cas FLOAT, IN new_cass FLOAT, IN new_id INT)
+BEGIN
+    IF new_impozit IS NOT NULL OR new_cas IS NOT NULL OR new_cass IS NOT NULL THEN
+        UPDATE salarycalculator.angajati
+        SET
+            impozit = brut_impozabil * new_impozit,
+            cas = total_brut * new_cas,
+            cass = total_brut * new_cass,
+            brut_impozabil = total_brut - (total_brut * new_cas + total_brut * new_cass),
+            virat_card = total_brut - (impozit + cas + cass + retineri)
+        WHERE taxa_id = new_id;
+    END IF;
+END
+
+//TRIGGER
+DELIMITER //
+
+CREATE TRIGGER trg_Angajati_UpdateAngajatiTaxe
+AFTER UPDATE
+ON salarycalculator.taxe FOR EACH ROW
+BEGIN
+    CALL UpdateAngajatiTaxe(NEW.impozit, NEW.cas, NEW.cass, NEW.id);
+END //
+
+DELIMITER ;
