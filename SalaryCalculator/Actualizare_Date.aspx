@@ -116,35 +116,37 @@
         <br />
 
         <asp:Label ID="lblNumeEdit" runat="server" Text="Nume: " AssociatedControlID="txtNumeEdit" CssClass="labelSpacing"  />
-        <asp:TextBox ID="txtNumeEdit" runat="server" CssClass="textBoxSpacing" />
+        <asp:TextBox ID="txtNumeEdit" runat="server" CssClass="textBoxSpacing" OnTextChanged="txtNumeEdit_TextChanged" />
 
         <br />
 
         <asp:Label ID="lblFunctieEdit" runat="server" Text="Functie: " AssociatedControlID="txtFunctieEdit" CssClass="labelSpacing" />
-        <asp:TextBox ID="txtFunctieEdit" runat="server" CssClass="textBoxSpacing" />
+        <asp:TextBox ID="txtFunctieEdit" runat="server" CssClass="textBoxSpacing" OnTextChanged="txtFunctieEdit_TextChanged" />
 
         <br />
 
         <asp:Label ID="lblSalarBazaEdit" runat="server" Text="Salar Baza: " AssociatedControlID="txtSalarBazaEdit" CssClass="labelSpacing" />
-        <asp:TextBox ID="txtSalarBazaEdit" runat="server" CssClass="textBoxSpacing" />
+        <asp:TextBox ID="txtSalarBazaEdit" runat="server" CssClass="textBoxSpacing" OnTextChanged="txtSalarBazaEdit_TextChanged" />
 
         <br />
 
         <asp:Label ID="lblSporEdit" runat="server" Text="Spor: " AssociatedControlID="txtSporEdit" CssClass="labelSpacing" />
-        <asp:TextBox ID="txtSporEdit" runat="server" CssClass="textBoxSpacing" />
+        <asp:TextBox ID="txtSporEdit" runat="server" CssClass="textBoxSpacing" OnTextChanged="txtSporEdit_TextChanged" />
 
         <br />
 
         <asp:Label ID="lblPremiiBruteEdit" runat="server" Text="Premii Brute: " AssociatedControlID="txtPremiiBruteEdit" CssClass="labelSpacing" />
-        <asp:TextBox ID="txtPremiiBruteEdit" runat="server" CssClass="textBoxSpacing" />
+        <asp:TextBox ID="txtPremiiBruteEdit" runat="server" CssClass="textBoxSpacing" OnTextChanged="txtPremiiBruteEdit_TextChanged" />
 
         <br />
 
         <asp:Label ID="lblRetineriEdit" runat="server" Text="Retineri: " AssociatedControlID="txtRetineriEdit" CssClass="labelSpacing" />
-        <asp:TextBox ID="txtRetineriEdit" runat="server" CssClass="textBoxSpacing" />
+        <asp:TextBox ID="txtRetineriEdit" runat="server" CssClass="textBoxSpacing" OnTextChanged="txtRetineriEdit_TextChanged" />
 
         <br />
         <br />
+
+        <asp:Label ID="lblErrorMessage" runat="server" CssClass="labelSpacing" />
 
         <asp:Button ID="btnSubmit" runat="server" Text="Actualizeaza angajat" Font-Bold="true" OnClick="btnSubmit_Click" />
 

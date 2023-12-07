@@ -274,6 +274,70 @@ namespace SalaryCalculator
             ScriptManager.RegisterStartupScript(this, GetType(), "RedirectScript", "setTimeout(function(){ window.location = '" + Request.RawUrl + "'; }, 300);", true);
         }
 
+        private void validateStringTextBoxes(TextBox textBox)
+        {
+
+            string value = textBox.Text.Trim();
+
+            if (containsNumbers(value))
+            {
+                lblErrorMessage.ForeColor = System.Drawing.Color.Red;
+                lblErrorMessage.Text = "Verifica te rog textul introdus, nu trebuie sa contina numere!";
+            }
+
+        }
+
+        private void validateDecimalTextBoxes(TextBox textBox)
+        {
+            string value = textBox.Text.Trim();
+
+            if (!decimal.TryParse(value, out decimal numericValue) || numericValue < 0)
+            {
+                lblErrorMessage.ForeColor = System.Drawing.Color.Red;
+                lblErrorMessage.Text = "Verifica te rog textul introdus, nu trebuie sa contina litere iar valoarea trebuie sa fie mai mare ca 0!";
+            }
+        }
+
+        private bool containsNumbers(string text)
+        {
+            return text.Any(char.IsDigit);
+        }
+
+        private bool containsLetters(string text)
+        {
+            return text.Any(char.IsLetter);
+        }
+
+        protected void txtNumeEdit_TextChanged(object sender, EventArgs e)
+        {
+            validateStringTextBoxes(txtNumeEdit);
+        }
+
+        protected void txtFunctieEdit_TextChanged(object sender, EventArgs e)
+        {
+            validateStringTextBoxes(txtFunctieEdit);
+        }
+
+        protected void txtSalarBazaEdit_TextChanged(object sender, EventArgs e)
+        {
+            validateDecimalTextBoxes(txtSalarBazaEdit);
+        }
+
+        protected void txtSporEdit_TextChanged(object sender, EventArgs e)
+        {
+            validateDecimalTextBoxes(txtSporEdit);
+        }
+
+        protected void txtPremiiBruteEdit_TextChanged(object sender, EventArgs e)
+        {
+            validateDecimalTextBoxes(txtPremiiBruteEdit);
+        }
+
+        protected void txtRetineriEdit_TextChanged(object sender, EventArgs e)
+        {
+            validateDecimalTextBoxes(txtRetineriEdit);
+        }
+
 
     }
 }
